@@ -285,7 +285,9 @@ if (isset($_POST['save_judges'])) {
             <td>" . $row["title"] . "</td>
             <td>" . $row["projectType"] . "</td>
             <td class='text-center'> <a href='#' data-toggle='modal' data-target='#roundProjectModel_" . $row["id"] . "'>
-            <i class='fa fa-external-link-alt'></i></a> </td>
+            <i class='fa fa-external-link-alt'></i></a> |  <a href='#' data-toggle='modal' data-target='#viewProjectModel_".$row["id"]."'>
+            <i class='fas fa-eye'></i></a> </td>
+
          
 
             </tr>" ?>

@@ -212,8 +212,7 @@ $mentor = $_POST['mentor'];
                 <th>Title</th>
                 <th>Program</th>
                 <th>Sponsor</th>
-                <th>Description</th>
-                
+                              
                 <th>Actions</th>                       
             </tr>
         </thead>
@@ -223,7 +222,7 @@ $mentor = $_POST['mentor'];
                 <th>Title</th>
                 <th>Program</th>
                 <th>Sponsor</th>
-                <th>Description</th>
+              
                
                 <th>Actions</th>
             </tr>
@@ -236,7 +235,7 @@ $mentor = $_POST['mentor'];
             <td>".$row["title"]."</td>
             <td>".$row["program"]."</td>
             <td>".$row["sponsor"]."</td>
-           <td>" .substr($row["pr_description"],0,25)."..</td>
+          
             
             <td> <a href='#' data-toggle='modal' data-target='#viewProjectModel_".$row["id"]."'>
             <i class='fas fa-eye'></i></a> </td>
@@ -352,7 +351,7 @@ $mentor = $_POST['mentor'];
                 <th>Title</th>
                 <th>Program</th>
                 <th>Sponsor</th>
-                <th>Description</th>
+              
                
                 <th>Actions</th>                       
             </tr>
@@ -363,7 +362,7 @@ $mentor = $_POST['mentor'];
                 <th>Title</th>
                 <th>Program</th>
                 <th>Sponsor</th>
-                <th>Description</th>
+               
               
                 <th>Actions</th>
             </tr>
@@ -376,7 +375,7 @@ $mentor = $_POST['mentor'];
             <td>".$row["title"]."</td>
             <td>".$row["program"]."</td>
             <td>".$row["sponsor"]."</td>
-           <td>" .substr($row["pr_description"],0,25)."..</td>
+           
            
             <td> <a href='#' data-toggle='modal' data-target='#viewProjectModel_".$row["id"]."'>
             <i class='fas fa-eye'></i></a> </td>
