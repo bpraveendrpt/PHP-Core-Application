@@ -102,7 +102,7 @@ if (isset($_SESSION['id'])) {
                                                 INNER JOIN results on projects_vs_jedges.id=results.judgeAssignedId 
                                                 INNER JOIN questions on results.questionId=questions.id 
                                                 where 
-                                                projects_vs_jedges.roundNumber=1 and projects_vs_jedges.projectId=" . $row['id'] . " ORDER BY projects_vs_jedges.modifiedOn DESC";
+                                                projects_vs_jedges.roundNumber=1 and projects_vs_jedges.projectId=" . $row['id'] . " and projects_vs_jedges.jedgeId=$judgeId ORDER BY projects_vs_jedges.modifiedOn DESC";
                                                 $questiojns_result = $conn->query($questiojns_list);
 
                                                 echo "<tr>
@@ -220,7 +220,7 @@ $result = $conn->query($project_list);
                     INNER JOIN results on projects_vs_jedges.id=results.judgeAssignedId 
                     INNER JOIN questions on results.questionId=questions.id 
                     where 
-                    projects_vs_jedges.roundNumber=1 and projects_vs_jedges.projectId=" . $row['id'] . " ORDER BY projects_vs_jedges.modifiedOn DESC";
+                    projects_vs_jedges.roundNumber=1 and projects_vs_jedges.projectId=" . $row['id'] . " and projects_vs_jedges.jedgeId=$judgeId ORDER BY projects_vs_jedges.modifiedOn DESC";
                     $questiojns_result = $conn->query($questiojns_list);
 
                     echo "<tr>
