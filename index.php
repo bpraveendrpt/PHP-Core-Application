@@ -65,7 +65,7 @@ if (isset($_SESSION['errors']))
                         <hr>
                         <button class="btn btn-primary rounded-pill px-3 mb-2 mb-lg-0">
                         <span class="d-flex align-items-center">
-                          <a href="http://itsshowcase.flemingdomains.ca/about-us/"> <span class="small text-white">Learn More</span></a>
+                          <a href="https://flemingcollege.ca/"> <span class="small text-white">Learn More</span></a>
                         </span>
                     </button>
                     </div>
