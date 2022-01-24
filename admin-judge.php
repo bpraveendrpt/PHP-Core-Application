@@ -115,7 +115,7 @@
                                         <div class="form-group">
                                             
                                             <input type="file" name="uploadFile" class="form-control" required />
-                                            <label> <a href="./test.xlsx">Download Sample File</a></label>
+                                            <label> <a href="./judges.csv">Download Sample File</a></label>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" name="submit" class="btn btn-primary">Upload</button>
