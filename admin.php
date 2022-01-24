@@ -2,42 +2,43 @@
 <?php include 'database.php';
  $loginId = $_SESSION['id'];
 $totalPro = "SELECT * from projects ";
-  
+    $projectcount="";
     if ($result = mysqli_query($conn, $totalPro)) {
     // Return the number of rows in result set
-    $projectcount = mysqli_num_rows( $result );
+    $projectcount = mysqli_num_rows($result );
     
 }
 $totalBusinPro = "SELECT * from projects where projectType= 'Technology'";
-  
+$projectBusincount= "";
     if ($result = mysqli_query($conn, $totalBusinPro)) {
-        $projectBusincount = mysqli_num_rows( $result );
+        $projectBusincount = mysqli_num_rows($result );
     }
 $totalTechPro = "SELECT * from projects where projectType= 'Business'";
-  
+    $projectTechcount= "";
+
     if ($result = mysqli_query($conn, $totalTechPro)) {
         
-        $projectTechcount = mysqli_num_rows( $result );        
+        $projectTechcount = mysqli_num_rows($result );        
     }
 $totalJudges = "SELECT * from login where userType= '1'";
-  
+    $judgescount ="";
     if ($result2 = mysqli_query($conn, $totalJudges)) {
-        $judgescount = mysqli_num_rows( $result2 ); 
+        $judgescount = mysqli_num_rows($result2 ); 
     }
     $totalRound1Projects = "SELECT * from projects_vs_jedges where roundNumber= '1'";
   
     if ($result = mysqli_query($conn, $totalRound1Projects)) {
-        $Round1Projects = mysqli_num_rows( $result ); 
+        $Round1Projects = mysqli_num_rows($result ); 
     }
     $totalsemifinalProjects = "SELECT * from projects_vs_jedges where roundNumber= '2'";
   
     if ($result = mysqli_query($conn, $totalsemifinalProjects)) {
-        $RoundsemifinalProjects = mysqli_num_rows( $result ); 
+        $RoundsemifinalProjects = mysqli_num_rows($result ); 
     }
     $totalfinalProjects = "SELECT * from projects_vs_jedges where roundNumber= '3'";
   
     if ($result = mysqli_query($conn, $totalfinalProjects)) {
-        $RoundfinalProjects = mysqli_num_rows( $result ); 
+        $RoundfinalProjects = mysqli_num_rows($result ); 
     }
 
 
@@ -76,8 +77,25 @@ $totalJudges = "SELECT * from login where userType= '1'";
                     </div>
 
                     <!-- Content Row -->
+                    <!-- Content Row -->
                     <div class="row">
-
+                    <!-- No Of Jadges Card  -->
+                    <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-success shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                No Of Jadges</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $judgescount?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-gavel fa-2x text-gray-300"></i> 
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Total Projects  -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
@@ -86,7 +104,7 @@ $totalJudges = "SELECT * from login where userType= '1'";
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                                                 Total Projects</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $projectcount?></div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $projectcount;?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-project-diagram fa-2x text-gray-300"></i>
@@ -95,7 +113,52 @@ $totalJudges = "SELECT * from login where userType= '1'";
                                 </div>
                             </div>
                         </div>
-                    </div>                 
+
+                        
+						<!-- Earnings (Monthly) Card Example -->
+                        <!-- <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-info shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Technical Project
+                                            </div>
+                                            <div class="row no-gutters align-items-center">
+                                                <div class="col-auto">
+                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?php echo $projectTechcount?></div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-cogs fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                        <!-- Pending Requests Card Example -->
+                        <!-- <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Business Projects</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?php echo $projectBusincount ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-business-time fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div> 
+                    
+                                    
                     <!-- Content Row -->
                     <div class="row">
 
