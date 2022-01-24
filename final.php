@@ -306,9 +306,7 @@ if (isset($_POST['save_judges'])) {
                                             echo "</tbody></table>" ?>
 
 
-                                        <?php } else { ?>
-                                            <p> No Records </p>
-                                        <?php } ?>
+                                        <?php } else{echo "No Records Found"; }?>
                                     </div>
                                 </div>
                             </div>
@@ -537,9 +535,7 @@ if (isset($_POST['save_judges'])) {
                                             echo "</tbody></table>" ?>
 
 
-                                        <?php } else { ?>
-                                            <p> No Records </p>
-                                        <?php } ?>
+                                        <?php } else{echo "No Records Found"; }?>
                                     </div>
                                 </div>
                             </div>
