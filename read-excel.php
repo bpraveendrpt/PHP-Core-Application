@@ -6,7 +6,7 @@ require_once './Classes/PHPExcel/IOFactory.php';
 <?php
 if (isset($_POST['submit'])) {
 	if (isset($_FILES['uploadFile']['name']) && $_FILES['uploadFile']['name'] != "") {
-		$allowedExtensions = array("xls", "xlsx");
+		$allowedExtensions = array("xls", "xlsx", "csv");
 		$ext = pathinfo($_FILES['uploadFile']['name'], PATHINFO_EXTENSION);
 
 		if (in_array($ext, $allowedExtensions)) {
@@ -36,8 +36,24 @@ if (isset($_POST['submit'])) {
 			$sheet = $excel_Obj->getSheet(0);
 			$highestRow = $sheet->getHighestRow();
 			$highestColumn = $sheet->getHighestColumn();
-			$query = 'INSERT INTO login (firstName,lastName,loginId,pswd,pswd) VALUES ';
+			$query = 'INSERT INTO login (firstName,lastName,loginId,pswd,save_pwd) VALUES ';
 			$query_parts = array();
+
+			function RandomStringMethod($length = 3)
+			{
+				// $randomCharacters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ=-$&@';
+				$randomCharacters = '0123456789';
+
+				$stringLength = strlen($randomCharacters);
+				$randomString = '';
+
+				for ($i = 0; $i < $length; $i++) {
+					$randomString .= $randomCharacters[rand(0, $stringLength - 1)];
+				}
+
+				return $randomString;
+			}
+
 
 			//  Loop through each row of the worksheet in turn
 			for ($row = 2; $row <= $highestRow; $row++) {
@@ -49,7 +65,12 @@ if (isset($_POST['submit'])) {
 					FALSE
 				);
 				// Preparing query data
-				$query_parts[] = "('" . $rowData[0][0] . "', '" . $rowData[0][1] . "','" . $rowData[0][0] . $rowData[0][1] . "','" . md5($rowData[0][0] . "_" . $rowData[0][1]) . "','" . $rowData[0][0] . "_" . $rowData[0][1] . "')";
+				$password = RandomStringMethod(3);
+
+				$lnLetter = substr($rowData[0][1], 0, 1);
+				$passSave = $rowData[0][0] . '_' . $lnLetter . $password;
+
+				$query_parts[] = "('" . $rowData[0][0] . "', '" . $rowData[0][1] . "','" . $rowData[0][0] . $rowData[0][1] . "','" . md5($passSave) . "','" . $passSave . "')";
 			}
 			$query .= implode(',', $query_parts);
 			if ($conn->multi_query($query) === TRUE) {

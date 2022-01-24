@@ -150,7 +150,7 @@ if (isset($_POST['save_judges'])) {
                                                                 <?php
                                                                 $totalJudges = "SELECT userType from login where userType  GROUP BY userType ";
                                                                 ?>
-                                                                <form name="assign-projects-form" enctype="multipart/form-data" action="round-1.php" method="POST" id="assignProjects" onsubmit="validateTechData();">
+                                                                <form name="assign-projects-form" enctype="multipart/form-data" action="round-1.php" method="POST" id="assignProjects" onsubmit="validateTechData(<?php echo $row['id']; ?>);">
 
 
                                                                     <div class="form-group row">
@@ -193,7 +193,7 @@ if (isset($_POST['save_judges'])) {
                                                                         <div class="form-group">
                                                                             <label for="exampleFormControlSelect2">Assign Judges</label>
 
-                                                                            <select size="8" multiple="multiple" class="form-control someSelect" name="jedgeId[]" id="MultiselectjedgeIdTech" required>
+                                                                            <select size="8" multiple="multiple" class="form-control someSelect" name="jedgeId[]" id="MultiselectjedgeIdTech_<?php echo $row["id"]; ?>" required>
 
                                                                                 <?php
                                                                                 // Using database connection file here
@@ -311,7 +311,7 @@ if (isset($_POST['save_judges'])) {
                                                                 <?php
                                                                 $totalJudges = "SELECT userType from login where userType  GROUP BY userType ";
                                                                 ?>
-                                                                <form name="assign-projects-form" enctype="multipart/form-data" action="round-1.php" method="POST" id="assignProjects" onsubmit="validateData();">
+                                                                <form name="assign-projects-form" enctype="multipart/form-data" action="round-1.php" method="POST" id="assignProjects" onsubmit="validateData(<?php echo $row['id']; ?>);">
 
 
                                                                     <div class="form-group row">
@@ -354,7 +354,7 @@ if (isset($_POST['save_judges'])) {
                                                                         <div class="form-group">
                                                                             <label for="exampleFormControlSelect2">Assign Judges</label>
 
-                                                                            <select size="8" multiple="multiple" class="form-control someSelect" name="jedgeId[]" id="MultiselectjedgeId" required>
+                                                                            <select size="8" multiple="multiple" class="form-control someSelect" name="jedgeId[]" id="MultiselectjedgeId_<?php echo $row["id"]; ?>" required>
 
                                                                                 <?php
                                                                                 // Using database connection file here
@@ -410,8 +410,9 @@ if (isset($_POST['save_judges'])) {
 <script>
     var maxCheckedCount = 4;
     var maxCheckedAlertMessage = 'You must select 4 judges!';
-    function validateData() {
-        var n = $('#MultiselectjedgeId').children(':selected').length;
+
+    function validateData(id) {
+        var n = $('#MultiselectjedgeId_' + id).children(':selected').length;
         if (n > maxCheckedCount) {
             alert("You can't select more than 4 Judges");
             event.preventDefault();
@@ -419,15 +420,20 @@ if (isset($_POST['save_judges'])) {
             alert(maxCheckedAlertMessage);
             event.preventDefault();
         } else {
-            //return true;
-            confirm("Sure are you want Submit");
+            let text = "Sure are you want Submit";
+            if (confirm(text) == true) {
+                return true;
+            } else {
+                event.preventDefault();
+            }
         }
         //return true;
     }
     var maxTechCheckedCount = 4;
     var maxCheckedAlertMessage = 'You must select 4 judges!';
-    function validateTechData() {
-        var n = $('#MultiselectjedgeIdTech').children(':selected').length;
+
+    function validateTechData(id) {
+        var n = $('#MultiselectjedgeIdTech_' + id).children(':selected').length;
         if (n > maxTechCheckedCount) {
             alert("You can't select more than 4 Judges");
             event.preventDefault();
@@ -435,8 +441,12 @@ if (isset($_POST['save_judges'])) {
             alert(maxCheckedAlertMessage);
             event.preventDefault();
         } else {
-            //return true;
-            confirm("Sure are you want Submit");
+            let text = "Sure are you want Submit";
+            if (confirm(text) == true) {
+                return true;
+            } else {
+                event.preventDefault();
+            }
         }
         //return true;
     }
