@@ -11694,3 +11694,4 @@ footer a:hover, footer a:active, footer a:focus {
     }
     .sidebar .nav-item .nav-link{padding: 0.75em !important;}
     .dataTables_filter{display: none !important;}
+    .btn-primary:disabled, .color-grey{background-color: #101214 !important;}

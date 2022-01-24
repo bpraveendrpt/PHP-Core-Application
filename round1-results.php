@@ -91,7 +91,7 @@ include 'database.php';
                     
                    
                     <th>Promote</th>
-                    <th  class='text-center'>Actions</th>                       
+                    <th  class='text-center'>Score Sheet</th>                       
                 </tr>
             </thead>
             <tfoot>
@@ -106,7 +106,7 @@ include 'database.php';
                        
                    
                     <th>Promote</th>
-                        <th  class='text-center'>Actions</th> 
+                        <th  class='text-center'>Score Sheet</th> 
                     </tr>
             </tfoot>
                 <tbody>";
@@ -120,7 +120,7 @@ include 'database.php';
                                                 $judgemarksIdnumber = "";
                                                 $classdisable = "";
                                                 if ($row["roundNumber"] !== '1') {
-                                                    $classdisable = "disabled";
+                                                    $classdisable = "disabled color-grey";
                                                 }
 
                                                 echo "<tr>
@@ -226,7 +226,7 @@ projects_vs_jedges.projectId=$tectprojectId
                   
                     
                     <th>Promote</th>
-                    <th  class='text-center'>Actions</th>                       
+                    <th  class='text-center'>Score Sheet</th>                       
                 </tr>
             </thead>
             <tfoot>
@@ -241,7 +241,7 @@ projects_vs_jedges.projectId=$tectprojectId
                         
                    
                     <th>Promote</th>
-                        <th  class='text-center'>Actions</th> 
+                        <th  class='text-center'>Score Sheet</th> 
                     </tr>
             </tfoot>
                 <tbody>";
@@ -257,7 +257,7 @@ projects_vs_jedges.projectId=$tectprojectId
                                                 $classdisable = "";
 
                                                 if ($row["roundNumber"] !== '1') {
-                                                    $classdisable = "disabled";
+                                                    $classdisable = "disabled color-grey";
                                                 }
 
                                                 echo "<tr>
@@ -373,7 +373,7 @@ while ($row1 = $result1->fetch_assoc()) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Round-I Results </h3>
+                    <h3>Score Sheet</h3>
 
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
@@ -441,7 +441,7 @@ while ($row2 = $result2->fetch_assoc()) { ?>
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h3>Round-I Results </h3>
+                    <h3>Score Sheet</h3>
 
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
