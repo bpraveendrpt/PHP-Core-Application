@@ -176,7 +176,9 @@ projects_vs_jedges.projectId=$tectprojectId
                                             echo "</tbody></table>" ?>
 
 
-                                        <?php } ?>
+                                        <?php } else{
+                                            echo "No Records Found";
+                                        }?>
 
                                     </div>
                                 </div>
@@ -306,7 +308,9 @@ projects_vs_jedges.projectId=$tectprojectId
                                             echo "</tbody></table>" ?>
 
 
-                                        <?php } ?>
+                                        <?php } else{
+                                            echo "No Records Found";
+                                        } ?>
 
                                     </div>
                                 </div>
