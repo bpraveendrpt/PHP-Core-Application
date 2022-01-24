@@ -110,7 +110,7 @@ if (isset($_SESSION['id'])) {
                 <td>" . $row["title"] . "</td>
                 <td><a href='" . $row["pr_url"] . "'target='_blank''>" . $row["pr_url"] . "</a></td>
                 <td>" . $row["marks"] . "</td>
-                <td>" . $row["remarks"] . "</td>
+                <td>" .substr($row["remarks"],0,25)."..</td>
                 <td class='text-center'> <a href='#' data-toggle='modal' data-target='#roundProjectModel_" . $row["id"] . "'>
                 <i class='fa fa-eye'></i></a> </td>
              
