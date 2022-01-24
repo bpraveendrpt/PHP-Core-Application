@@ -89,7 +89,7 @@ if (isset($_POST["judgeAssignedId"])) {
                                     <div class="table-responsive">
                                         <?php if ($result->num_rows > 0) {
 
-                                            echo "<table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                                            echo "<table class='table table-bordered'  width='100%' cellspacing='0'>
             
             <thead>
                 <tr>
@@ -116,11 +116,154 @@ if (isset($_POST["judgeAssignedId"])) {
                 <td>" . $row["id"] . "</td>
                 <td>" . $row["title"] . "</td>
                 <td>" . $row["projectType"] . "</td>
-                <td class='text-center'> <a href='#' data-toggle='modal' data-target='#roundProjectModel_" . $row["id"] . "'>
+                <td class='text-center'>  <a href='#' data-toggle='modal' data-target='#viewSemiProjectModel_Business _".$row["id"]."'>
+                <i class='fas fa-eye'></i></a> | <a href='#' data-toggle='modal' data-target='#roundProjectModel_" . $row["id"] . "'>
                 <i class='fa fa-external-link-alt'></i></a> </td>
              
    
                 </tr>" ?>
+                <div class="modal fade" id="viewSemiProjectModel_Business<?php echo $row['id'] ?>"
+                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header modal-form-header">
+                                <h5 class="modal-title text-white" id="exampleModalLabel">
+                                Project Details</h5>
+                                <button class="close text-white" type="button" data-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                
+                            </div>
+                            
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <strong>Title</strong>
+                                                <label> <?php echo $row["title"]; ?></label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Program</strong>
+                                            <p><?php echo $row["program"]; ?></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Names</strong>
+                                            <p><?php echo $row["names"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Sponsor</strong>
+                                            <p><?php echo $row["sponsor"]; ?></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>URL</strong>
+                                            <p><?php echo $row["pr_url"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Project Type</strong>
+                                            <p> <span class="badge badge-info"><?php echo $row["projectType"]; ?></span></p>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Mentor</strong>
+                                            <p><?php echo $row["mentor"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <strong>Description</strong>
+                                        <p><?php echo $row["pr_description"]; ?></p>
+                                        
+                                    </div>
+                                </div>
+                                    
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" type="button"
+                                        data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal fade" id="viewProjectjedge_round_Business_<?php echo $row['id'] ?>"
+                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header modal-form-header">
+                                <h5 class="modal-title text-white" id="exampleModalLabel">
+                                Project Details</h5>
+                                <button class="close text-white" type="button" data-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                
+                            </div>
+                            
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <strong>Title</strong>
+                                                <label> <?php echo $row["title"]; ?></label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Program</strong>
+                                            <p><?php echo $row["program"]; ?></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Names</strong>
+                                            <p><?php echo $row["names"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Sponsor</strong>
+                                            <p><?php echo $row["sponsor"]; ?></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>URL</strong>
+                                            <p><?php echo $row["pr_url"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Project Type</strong>
+                                            <p> <span class="badge badge-info"><?php echo $row["projectType"]; ?></span></p>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Mentor</strong>
+                                            <p><?php echo $row["mentor"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <strong>Description</strong>
+                                        <p><?php echo $row["pr_description"]; ?></p>
+                                        
+                                    </div>
+                                </div>
+                                    
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" type="button"
+                                        data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                                                 <div class="modal fade" data-backdrop="static" data-keyboard="false" id="roundProjectModel_<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -184,7 +327,8 @@ if (isset($_POST["judgeAssignedId"])) {
                                                                         <label for="exampleFormControlTextarea1">Remarks</label>
                                                                         <textarea name="remarks" class="form-control" id="remarksTextarea1" rows="3"></textarea>
                                                                     </div>
-                                                                    <input class="btn btn-primary" type="submit" value="Add">
+                                                                    <input class="btn btn-primary" type="submit" value="Submit">
+                                                                    <button class="btn btn-primary float-right" type="button" data-dismiss="modal">Cancel</button>
 
                                                                 </form>
                                                             </div>
@@ -224,7 +368,7 @@ if (isset($_POST["judgeAssignedId"])) {
                                     <div class="table-responsive">
                                         <?php if ($result->num_rows > 0) {
 
-                                            echo "<table class='table table-bordered' id='dataTable' width='100%' cellspacing='0'>
+                                            echo "<table class='table table-bordered' width='100%' cellspacing='0'>
             
             <thead>
                 <tr>
@@ -253,10 +397,82 @@ if (isset($_POST["judgeAssignedId"])) {
                 <td>" . $row["title"] . "</td>
                 <td>" . $row["projectType"] . "</td>
                 <td class='text-center'> <a href='#' data-toggle='modal' data-target='#roundProjectModel_" . $row["id"] . "'>
-                <i class='fa fa-external-link-alt'></i></a> </td>
+                <i class='fa fa-external-link-alt'></i></a> | <a href='#' data-toggle='modal' data-target='#viewSemiProjectModel_Technology_".$row["id"]."'>
+                <i class='fas fa-eye'></i></a> </td>
              
    
                 </tr>" ?>
+                <div class="modal fade" id="viewSemiProjectModel_Technology_<?php echo $row['id'] ?>"
+                    tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header modal-form-header">
+                                <h5 class="modal-title text-white" id="exampleModalLabel">
+                                Project Details</h5>
+                                <button class="close text-white" type="button" data-dismiss="modal"
+                                    aria-label="Close">
+                                    <span aria-hidden="true">×</span>
+                                </button>
+                                
+                            </div>
+                            
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <strong>Title</strong>
+                                                <label> <?php echo $row["title"]; ?></label>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Program</strong>
+                                            <p><?php echo $row["program"]; ?></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Names</strong>
+                                            <p><?php echo $row["names"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Sponsor</strong>
+                                            <p><?php echo $row["sponsor"]; ?></p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>URL</strong>
+                                            <p><?php echo $row["pr_url"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <strong>Project Type</strong>
+                                            <p> <span class="badge badge-info"><?php echo $row["projectType"]; ?></span></p>
+                                            
+                                        </div>
+                                        <div class="col-md-6">
+                                            <strong>Mentor</strong>
+                                            <p><?php echo $row["mentor"]; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <strong>Description</strong>
+                                        <p><?php echo $row["pr_description"]; ?></p>
+                                        
+                                    </div>
+                                </div>
+                                    
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary" type="button"
+                                        data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                                                 <div class="modal fade" data-backdrop="static" data-keyboard="false" id="roundProjectModel_<?php echo $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -320,7 +536,8 @@ if (isset($_POST["judgeAssignedId"])) {
                                                                         <label for="exampleFormControlTextarea1">Remarks</label>
                                                                         <textarea name="remarks" class="form-control" id="remarksTextarea1" rows="3"></textarea>
                                                                     </div>
-                                                                    <input class="btn btn-primary" type="submit" value="Add">
+                                                                    <input class="btn btn-primary" type="submit" value="Submit">
+                                                                    <button class="btn btn-primary float-right" type="button" data-dismiss="modal">Cancel</button>
 
                                                                 </form>
                                                             </div>
